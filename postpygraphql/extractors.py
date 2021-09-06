@@ -2,6 +2,7 @@ import json
 import ntpath
 import magic
 import os
+from io import BytesIO
 
 
 def extract_dict_from_raw_mode_data(raw):
@@ -18,18 +19,19 @@ def extract_dict_from_raw_mode_data(raw):
 
 def exctact_dict_from_files(data):
     """extract files from dict data.
-
     :param data: [{"key":"filename", "src":"relative/absolute path to file"}]
     :return: :tuple of file metadata for requests library
     """
     if not os.path.isfile(data['src']):
         raise Exception(
-            'File ' + data['src'] + ' does not exists')
+            'File '+data['src']+' does not exists')
     mime = magic.Magic(mime=True)
     file_mime = mime.from_file(data['src'])
     file_name = ntpath.basename(data['src'])
-    return (file_name, open(data['src'], 'rb'), file_mime, {
-        'Content-Disposition': 'form-data; name="' + data['key'] + '"; filename="' + file_name + '"',
+    with open(data['src'], 'rb') as fs:
+        bs = BytesIO(fs.read()) # read bytes from file into memory
+    return (file_name, bs, file_mime, {
+        'Content-Disposition': 'form-data; name="'+data['key']+'"; filename="' + file_name + '"',
         'Content-Type': file_mime})
 
 
