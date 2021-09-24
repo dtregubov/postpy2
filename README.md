@@ -11,10 +11,16 @@ PostPyGraphQL is here for your continuous integration.
   Just export collection with Postman and use it with PostPyGraphQL.
 - In code generation, you don't have environment feature anymore and variables are hard coded.
 
-## Why user PostPyGraphQL instead of Postman collection runner?
+## Why use PostPyGraphQL instead of Postman collection runner?
 
-- With PostPyGraphQL, you write your own script. But collection runner just turns all your requests one by one.
-  So with PostPyGraphQL, you can design more complex test suites.
+With PostPyGraphQL, you write your own script. But collection runner just turns all your requests one by one.
+So with PostPyGraphQL, you can design more complex test suites.
+  
+## Why use PostPyGraphQL with GraphQL collections?
+
+The framework contains necessary functionality to run GraphQL methods from Postman collections. 
+It's also available to change GraphQL variables directly from tests using dict of new GraphQL variables 
+as an argument in a method.
 
 ## How to install?
 
