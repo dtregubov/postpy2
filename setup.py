@@ -6,7 +6,7 @@ with open("README.md", "r") as fh:
 setuptools.setup(
     name='postpygraphql',
     packages=['postpygraphql'],
-    version='0.0.2',
+    version='0.0.4',
     author='Dmitriy Tregubov',
     author_email='hedin358@mail.ru',
     description='A library to use postman collection V2.1 in python.',
@@ -14,7 +14,7 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url='https://github.com/dtregubov/postpygraphql',
     download_url='https://codeload.github.com/dtregubov/postpygraphql/zip/master',
-    keywords=['postman', 'python', 'graphql', 'rest', 'api'],  # arbitrary keywords
+    keywords=['postman', 'python', 'graphql', 'rest', 'api', 'testing', 'automation'],  # arbitrary keywords
     install_requires=[
         'requests',
         'python-magic'

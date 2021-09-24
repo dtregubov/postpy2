@@ -1,24 +1,30 @@
 # PostPyGraphQL
 
-PostPyGraphQL is a library for [Postman](https://www.getpostman.com/) that run Postman's collections. Originaly was forked from https://github.com/matkapi/postpy2 and updated for using body mode GraphQL.
+PostPyGraphQL is a library for [Postman](https://www.getpostman.com/) that run Postman's collections. Originally was forked from https://github.com/matkapi/postpy2 and updated for using body mode GraphQL.
 If you are using postman, but collection runner is not flexible enough for you and postman codegen is too boring,
 PostPyGraphQL is here for your continuous integration.
 
 ## Why use PostPyGraphQL instead of postman codegen?
 
-- Postman codegen should be applied one by one for each request and it's boring when your API changes,
+- Postman codegen should be applied one by one for each request, and it's boring when your API changes,
   but with PostPyGraphQL, you don't need to generate code.
   Just export collection with Postman and use it with PostPyGraphQL.
 - In code generation, you don't have environment feature anymore and variables are hard coded.
 
-## Why user PostpyGraphQL instead of Postman collection runner?
+## Why use PostPyGraphQL instead of Postman collection runner?
 
-- With PostPyGraphQL, you write your own script. But collection runner just turns all your requests one by one.
-  So with PostPyGraphQL, you can design more complex test suites.
+With PostPyGraphQL, you write your own script. But collection runner just turns all your requests one by one.
+So with PostPyGraphQL, you can design more complex test suites.
+  
+## Why use PostPyGraphQL with GraphQL collections?
+
+The framework contains necessary functionality to run GraphQL methods from Postman collections. 
+It's also available to change GraphQL variables directly from tests using dict of new GraphQL variables 
+as an argument in a method.
 
 ## How to install?
 
-PostPyGraphQL is available on [PyPI](https://pypi.python.org/pypi?name=postpygraphql&version=0.0.1&:action=display)
+PostPyGraphQL is available on [PyPI](https://pypi.python.org/pypi?name=postpygraphql&version=0.0.3&:action=display)
 and you can install it using pip:
 
 ```bash
@@ -49,7 +55,7 @@ print(response.json())
 print(response.status_code)
 ```
 
-### Load enviroment variables
+### Load environment variables
 
 In PostPyGraphQL you can load environmental variables from postman environment files
 
