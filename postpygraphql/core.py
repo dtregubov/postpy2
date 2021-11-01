@@ -120,6 +120,8 @@ class PostRequest:
         if 'variables' in kwargs.keys():  # directly changing graphql variables if there is a method argument
             if kwargs['variables'] is not None:  # format: your_method(variables=your_data)
                 formatted_kwargs['json']['variables'] = kwargs['variables']
+        elif args and args[0] is not None:  # if there are args from method, we replace postman's json to this one
+            formatted_kwargs['json'] = args[0]
         return requests.request(**formatted_kwargs)
 
     def set_files(self, data):
